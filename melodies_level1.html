@@ -1,98 +1,198 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ألحان مستوى أول</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-</head>
-<body class="bg-white">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-image: url('photo_2025-06-09_17-02-57.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      color: #fff;
+      font-size: 1.25rem;
+    }
 
+    .container {
+      animation: fadeInDown 1.5s ease-in-out;
+      padding: 2rem;
+    }
+
+    h2 {
+      font-weight: bold;
+      color: #fff;
+      font-size: 2.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .accordion-item {
+      border-radius: 15px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      border: none;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    .accordion-button {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 1.5rem;
+      border-radius: 15px;
+      padding: 1.25rem;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: #ffc107;
+      color: #000;
+    }
+
+    .accordion-body {
+      padding: 1.5rem;
+    }
+
+    .accordion-body p {
+      font-size: 1.25rem;
+    }
+
+    .accordion-body img {
+      max-width: 100%;
+      width: 400px;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      padding-right: 1.5rem;
+    }
+
+    li {
+      font-size: 1.25rem;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 1.1rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .accordion-button {
+        font-size: 1.25rem;
+        padding: 1rem;
+      }
+
+      .accordion-body p, .accordion-body li {
+        font-size: 1.1rem;
+      }
+
+      .accordion-body img, audio {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
   <div class="container py-5">
     <h2 class="mb-4 text-center">ألحان مستوى أول</h2>
-
     <div class="accordion" id="melodiesAccordion">
-
       <div class="accordion-item">
         <h2 class="accordion-header" id="melodyOne">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-            لحن 1: مرد تين جوشت للقداس الباسيلى
+            لحن 1: مرد تين جوشت للقداس الباسيلي
           </button>
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#melodiesAccordion">
           <div class="accordion-body">
             <p><strong>الكلمات:</strong></p>
-            <img src="O1.jpg" alt="هزة 1" class="img-fluid rounded mb-3" style="max-width: 300px;">
+            <img src="O1.jpg" alt="كلمات مرد تين جوشت" class="img-fluid rounded mb-3">
             <p><strong>فويسات:</strong></p>
             <ul>
-              <li>فويس 1: <audio controls src="مرد_تين_جوشت_للقداس_الباسيلي_الحان_أولى_و_ثانية_م_مهرجان_الك.m4a"></audio></li>
+              <li> الفويس: <audio controls src="مرد_تين_جوشت_للقداس_الباسيلي_الحان_أولى_و_ثانية_م_مهرجان_الك.m4a"></audio></li>
             </ul>
-             <p><strong>المادة الطقسية:</strong></p>
-            <img src="M4.jpg" alt="هزة 1" class="img-fluid rounded mb-3" style="max-width: 300px;">
+            <p><strong>المادة الطقسية:</strong></p>
+            <img src="M4.jpg" alt="المادة الطقسية مرد تين جوشت" class="img-fluid rounded mb-3">
           </div>
         </div>
       </div>
-
       <div class="accordion-item mt-3">
         <h2 class="accordion-header" id="melodyTwo">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-            لحن 2: مرد انجيل باكر السنوى مارين اؤوشت
+            لحن 2: مرد إنجيل باكر السنوي مارين أؤوشت
           </button>
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#melodiesAccordion">
           <div class="accordion-body">
             <p><strong>الكلمات:</strong></p>
-            <img src="O2.jpg" alt="هزة 2" class="img-fluid rounded mb-3" style="max-width: 300px;">
+            <img src="O2.jpg" alt="كلمات مرد إنجيل باكر" class="img-fluid rounded mb-3">
             <p><strong>فويسات:</strong></p>
             <ul>
-              <li>فويس 1: <audio controls src="مرد_انجيل_باكر_السنوى_الحان_أولى_و_ثانية_م_مهرجان_الكرزاة_ال.m4a"></audio></li>
+              <li> الفويس: <audio controls src="مرد_انجيل_باكر_السنوى_الحان_أولى_و_ثانية_م_مهرجان_الكرزاة_ال.m4a"></audio></li>
             </ul>
-             <p><strong>المادة الطقسية:</strong></p>
-            <img src="M5.jpg" alt="هزة 1" class="img-fluid rounded mb-3" style="max-width: 300px;">
+            <p><strong>المادة الطقسية:</strong></p>
+            <img src="M5.jpg" alt="المادة الطقسية مرد إنجيل باكر" class="img-fluid rounded mb-3">
           </div>
         </div>
       </div>
-<div class="accordion-item mt-3">
+      <div class="accordion-item mt-3">
         <h2 class="accordion-header" id="melodyThree">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-            لحن 3: مردات قطع الساعة التاسعة قبطيا من يوم الجمعة العظيمة
+            لحن 3: مردات قطع الساعة التاسعة قبطياً من يوم الجمعة العظيمة
           </button>
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#melodiesAccordion">
           <div class="accordion-body">
             <p><strong>الكلمات:</strong></p>
-            <img src="O3.jpg" alt="هزة 2" class="img-fluid rounded mb-3" style="max-width: 300px;">
+            <img src="O3.jpg" alt="كلمات مردات قطع الساعة التاسعة" class="img-fluid rounded mb-3">
             <p><strong>فويسات:</strong></p>
             <ul>
-              <li>فويس 1: <audio controls src="مردات_قطع_الساعة_التاسعة_الحان_أولى_و_ثانية_م_مهرجان_الكرزاة.m4a"></audio></li>
+              <li> الفويس: <audio controls src="مردات_قطع_الساعة_التاسعة_الحان_أولى_و_ثانية_م_مهرجان_الكرزاة.m4a"></audio></li>
             </ul>
-             <p><strong>المادة الطقسية:</strong></p>
-            <img src="M6.jpg" alt="هزة 1" class="img-fluid rounded mb-3" style="max-width: 300px;">
+            <p><strong>المادة الطقسية:</strong></p>
+            <img src="M6.jpg" alt="المادة الطقسية مردات قطع الساعة التاسعة" class="img-fluid rounded mb-3">
           </div>
         </div>
       </div>
-      <div class="accordion-item mt-3">
+      <div class="accordion-item mt-4">
         <h2 class="accordion-header" id="melodyFour">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
-            لحن 4: مرد الانجيل الثالث لقداس احد الشعانين
+            لحن 4: مرد الإنجيل الثالث لقداس أحد الشعانين
           </button>
         </h2>
         <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#melodiesAccordion">
           <div class="accordion-body">
             <p><strong>الكلمات:</strong></p>
-            <img src="O4.jpg" alt="هزة 2" class="img-fluid rounded mb-3" style="max-width: 300px;">
+            <img src="O4.jpg" alt="كلمات مرد الإنجيل الثالث" class="img-fluid rounded mb-3">
             <p><strong>فويسات:</strong></p>
             <ul>
-              <li>فويس 1: <audio controls src="مرد_الانجيل_الثالث_لقداس_احد_الشعانين_الحان_أولى_و_ثانية_م_.m4a"></audio></li>
+              <li>الفويس: <audio controls src="مرد_الانجيل_الثالث_لقداس_احد_الشعانين_الحان_أولى_و_ثانية_م_.m4a"></audio></li>
             </ul>
-             <p><strong>المادة الطقسية:</strong></p>
-            <img src="M7.jpg" alt="هزة 1" class="img-fluid rounded mb-3" style="max-width: 300px;">
+            <p><strong>المادة الطقسية:</strong></p>
+            <img src="M7.jpg" alt="المادة الطقسية مرد الإنجيل الثالث" class="img-fluid rounded mb-3">
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
