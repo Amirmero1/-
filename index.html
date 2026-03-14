@@ -2,109 +2,246 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>كنيسة مارجرجس بشبين الكوم</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-glow: rgba(201,168,76,0.3);
+      --deep: #090F1A;
+      --navy: #111D2E;
+      --card-bg: rgba(255,255,255,0.04);
+      --card-border: rgba(201,168,76,0.2);
+      --text: #F0EAD6;
+      --text-dim: rgba(240,234,214,0.6);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%; height: 100%;
       font-family: 'Cairo', sans-serif;
-      background-image: url('photo_2025-06-09_17-02-57.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      background: var(--deep);
+      color: var(--text);
+      direction: rtl;
+      overflow-x: hidden;
+    }
+
+    /* ── BACKGROUND ── */
+    .bg {
+      position: fixed; inset: 0; z-index: 0;
+    }
+    .bg-img {
+      position: absolute; inset: 0;
+      background: url('photo_2025-06-09_17-02-57.jpg') center/cover no-repeat;
+      filter: brightness(0.18) saturate(0.5);
+    }
+    .bg-overlay {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 100% 50% at 50% -10%, rgba(201,168,76,0.18) 0%, transparent 60%),
+        linear-gradient(180deg, rgba(9,15,26,0.3) 0%, rgba(9,15,26,0.95) 100%);
+    }
+    .bg-dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(201,168,76,0.05) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+
+    /* ── WRAPPER ── */
+    .wrapper {
+      position: relative; z-index: 1;
       min-height: 100vh;
-      color: #fff;
-      font-size: 1.25rem;
+      display: flex; flex-direction: column;
+      align-items: center;
+      padding: 0 1rem 3rem;
     }
 
-    .container {
-      animation: fadeInDown 1.5s ease-in-out;
-      padding: 2rem;
+    /* ── HEADER ── */
+    .site-header {
+      width: 100%;
+      text-align: center;
+      padding: 2.5rem 1rem 2rem;
+      animation: fadeDown 0.9s ease both;
     }
 
-    h2 {
-      font-weight: bold;
-      color: #fff;
-      font-size: 2.5rem;
+    .cross-icon {
+      font-size: 2.2rem;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.6rem;
+      text-shadow: 0 0 20px var(--gold-glow);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .site-header h1 {
+      font-family: 'Amiri', serif;
+      font-size: clamp(1.5rem, 5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .gold-line {
+      width: 80px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 1rem auto 0.6rem;
+      border-radius: 2px;
+    }
+
+    .site-header p {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-family: 'Amiri', serif;
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      color: var(--gold-light);
+      text-align: center;
+      margin-bottom: 1.8rem;
+      animation: fadeDown 1s ease 0.2s both;
+    }
+
+    /* ── CARDS GRID ── */
+    .cards-grid {
+      width: 100%;
+      max-width: 600px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      animation: fadeUp 0.9s ease 0.3s both;
     }
 
     .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-radius: 20px;
-      background-color: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(5px);
-      border: none;
-      color: #fff;
-      padding: 1.5rem;
+      padding: 1.8rem 1rem;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      cursor: pointer;
+    }
+
+    .card:active {
+      transform: scale(0.97);
+    }
+
+    @media (hover: hover) {
+      .card:hover {
+        transform: translateY(-4px);
+        border-color: var(--gold);
+        background: rgba(201,168,76,0.08);
+        box-shadow: 0 12px 40px rgba(201,168,76,0.15);
+      }
+    }
+
+    .card-icon {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.05));
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
     }
 
     .card-title {
-      font-size: 1.75rem;
-    }
-
-    .card .btn {
-      border-radius: 30px;
-      background-color: #ffc107;
-      border: none;
-      color: #000;
-      transition: 0.3s;
+      font-family: 'Amiri', serif;
       font-size: 1.25rem;
-      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
     }
 
-    .card .btn:hover {
-      background-color: #ffca2c;
-      transform: scale(1.05);
+    .card-arrow {
+      font-size: 0.85rem;
+      color: var(--gold);
+      padding: 0.35rem 1.1rem;
+      border: 1px solid rgba(201,168,76,0.35);
+      border-radius: 50px;
+      background: rgba(201,168,76,0.08);
+      transition: background 0.25s;
+      white-space: nowrap;
     }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-40px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* ── FOOTER ── */
+    .site-footer {
+      margin-top: 3rem;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      animation: fadeUp 1s ease 0.5s both;
     }
 
-    @media (max-width: 768px) {
-      body {
-        font-size: 1.1rem;
-      }
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%,100% { text-shadow: 0 0 20px var(--gold-glow); }
+      50%      { text-shadow: 0 0 35px rgba(201,168,76,0.6); }
+    }
 
-      h2 {
-        font-size: 2rem;
-      }
-
-      .card-title {
-        font-size: 1.5rem;
-      }
-
-      .card .btn {
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-      }
+    /* ── MOBILE ── */
+    @media (max-width: 400px) {
+      .cards-grid { grid-template-columns: 1fr; max-width: 320px; }
+      .card { flex-direction: row; padding: 1.2rem 1.2rem; text-align: right; }
+      .card-icon { width: 50px; height: 50px; font-size: 1.4rem; flex-shrink: 0; }
+      .card-title { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
-  <div class="container py-5">
-    <h2 class="text-center mb-4">اختر المسابقة</h2>
-    <div class="row justify-content-center">
+  <div class="bg">
+    <div class="bg-img"></div>
+    <div class="bg-overlay"></div>
+    <div class="bg-dots"></div>
+  </div>
 
-       <div class="col-md-4 col-12 mb-4">
-        <div class="card text-center shadow p-4">
-          <div class="card-body">
-            <h5 class="card-title"> كورال </h5>
-            <a href="Home2.html" class="btn btn-warning mt-3">عرض المسابقة</a>
-          </div>
-        </div>
-      </div>
+  <div class="wrapper">
+    <header class="site-header">
+      <span class="cross-icon">✙</span>
+      <h1>كنيسة مارجرجس<br>بشبين الكوم</h1>
+      <div class="gold-line"></div>
+      <p>مهرجان الكرازة المرقسية</p>
+    </header>
 
-       <div class="col-md-4 col-12 mb-4">
-        <div class="card text-center shadow p-4">
-          <div class="card-body">
-            <h5 class="card-title"> خورس  </h5>
-            <a href="Home.html" class="btn btn-warning mt-3">عرض المسابقة</a>
-          </div>
-        </div>
-      </div>
+    <h2 class="section-title">اختر المسابقة</h2>
+
+    <div class="cards-grid">
+      <a class="card" href="Home2.html">
+        <div class="card-icon">🎶</div>
+        <div class="card-title">كورال</div>
+        <span class="card-arrow">عرض المسابقة</span>
+      </a>
+
+      <a class="card" href="Home.html">
+        <div class="card-icon">🎵</div>
+        <div class="card-title">خورس</div>
+        <span class="card-arrow">عرض المسابقة</span>
+      </a>
     </div>
+
+    <footer class="site-footer">
+      <p>✙ كنيسة مارجرجس بشبين الكوم ✙</p>
+    </footer>
   </div>
 </body>
 </html>
