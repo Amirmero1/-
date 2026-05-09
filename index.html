@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -10,118 +10,106 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="مارجرجس">
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
   <style>
-    :root {
-      --gold: #C9A84C; --gold-light: #E8C97A; --gold-glow: rgba(201,168,76,0.3);
-      --deep: #090F1A; --card-bg: rgba(255,255,255,0.04); --card-border: rgba(201,168,76,0.2);
-      --text: #F0EAD6; --text-dim: rgba(240,234,214,0.6);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { width: 100%; height: 100%; font-family: 'Cairo', sans-serif; background: var(--deep); color: var(--text); direction: rtl; overflow-x: hidden; }
-    .bg { position: fixed; inset: 0; z-index: 0; }
-    .bg-img { position: absolute; inset: 0; background: url('photo_2025-06-09_17-02-57.jpg') center/cover no-repeat; filter: brightness(0.18) saturate(0.5); }
-    .bg-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse 100% 50% at 50% -10%, rgba(201,168,76,0.18) 0%, transparent 60%), linear-gradient(180deg, rgba(9,15,26,0.3) 0%, rgba(9,15,26,0.95) 100%); }
-    .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(201,168,76,0.05) 1px, transparent 1px); background-size: 36px 36px; }
-    .wrapper { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 0 1rem 5rem; }
-    .site-header { width: 100%; text-align: center; padding: 2.5rem 1rem 2rem; animation: fadeDown 0.9s ease both; }
-    .cross-icon { font-size: 2.2rem; color: var(--gold); display: block; margin-bottom: 0.6rem; text-shadow: 0 0 20px var(--gold-glow); animation: pulse 3s ease-in-out infinite; }
-    .site-header h1 { font-family: 'Amiri', serif; font-size: clamp(1.5rem, 5vw, 2.4rem); font-weight: 700; line-height: 1.4; }
-    .gold-line { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 1rem auto 0.6rem; border-radius: 2px; }
-    .site-header p { font-size: 0.9rem; color: var(--text-dim); letter-spacing: 0.04em; }
-    .section-title { font-family: 'Amiri', serif; font-size: clamp(1.3rem, 4vw, 1.8rem); color: var(--gold-light); text-align: center; margin-bottom: 1.8rem; animation: fadeDown 1s ease 0.2s both; }
-    .cards-grid { width: 100%; max-width: 600px; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; animation: fadeUp 0.9s ease 0.3s both; }
-    .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; padding: 1.8rem 1rem; text-align: center; text-decoration: none; color: var(--text); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s, background 0.3s; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
-    .card:active { transform: scale(0.97); }
-    @media (hover: hover) { .card:hover { transform: translateY(-4px); border-color: var(--gold); background: rgba(201,168,76,0.08); box-shadow: 0 12px 40px rgba(201,168,76,0.15); } }
-    .card-icon { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.05)); border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; }
-    .card-title { font-family: 'Amiri', serif; font-size: 1.25rem; font-weight: 700; line-height: 1.4; }
-    .card-arrow { font-size: 0.85rem; color: var(--gold); padding: 0.35rem 1.1rem; border: 1px solid rgba(201,168,76,0.35); border-radius: 50px; background: rgba(201,168,76,0.08); white-space: nowrap; }
-    .site-footer { margin-top: 3rem; text-align: center; color: var(--text-dim); font-size: 0.8rem; animation: fadeUp 1s ease 0.5s both; }
+    :root{--gold:#C9A84C;--gold-light:#E8C97A;--gold-glow:rgba(201,168,76,0.28);--gold-subtle:rgba(201,168,76,0.08);--gold-border:rgba(201,168,76,0.22);--gold-border-strong:rgba(201,168,76,0.5);--radius-lg:22px;--transition:0.28s cubic-bezier(.4,0,.2,1);}
+    [data-theme="dark"]{--bg-page:#070C16;--bg-card:rgba(255,255,255,0.04);--bg-card-hover:rgba(201,168,76,0.07);--bg-nav:rgba(7,12,22,0.82);--bg-section:rgba(255,255,255,0.03);--text-primary:#F0EAD6;--text-secondary:rgba(240,234,214,0.62);--text-muted:rgba(240,234,214,0.38);--border:rgba(201,168,76,0.18);--shadow-glow:0 0 0 1px rgba(201,168,76,0.18),0 8px 32px rgba(201,168,76,0.1);--bg-img-filter:brightness(0.13) saturate(0.35);}
+    [data-theme="light"]{--bg-page:#F5F0E8;--bg-card:rgba(255,255,255,0.85);--bg-card-hover:rgba(201,168,76,0.06);--bg-nav:rgba(245,240,232,0.92);--bg-section:rgba(201,168,76,0.06);--text-primary:#1A1209;--text-secondary:#5C4A28;--text-muted:#9C8A5A;--border:rgba(201,168,76,0.28);--shadow-glow:0 0 0 1px rgba(201,168,76,0.3),0 4px 20px rgba(201,168,76,0.12);--bg-img-filter:brightness(0.6) saturate(0.25) opacity(0.18);}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html,body{width:100%;height:100%;font-family:'Cairo',sans-serif;background:var(--bg-page);color:var(--text-primary);direction:rtl;overflow-x:hidden;transition:background var(--transition),color var(--transition);}
+    .bg{position:fixed;inset:0;z-index:0;pointer-events:none;}
+    .bg-img{position:absolute;inset:0;background:url('photo_2025-06-09_17-02-57.jpg') center/cover no-repeat;filter:var(--bg-img-filter);transition:filter var(--transition);}
+    [data-theme="dark"] .bg-overlay{position:absolute;inset:0;background:radial-gradient(ellipse 120% 55% at 50% -5%,rgba(201,168,76,0.13) 0%,transparent 58%),linear-gradient(180deg,rgba(7,12,22,0.25) 0%,rgba(7,12,22,0.96) 100%);}
+    [data-theme="light"] .bg-overlay{position:absolute;inset:0;background:radial-gradient(ellipse 120% 55% at 50% -5%,rgba(201,168,76,0.07) 0%,transparent 58%),linear-gradient(180deg,rgba(245,240,232,0.55) 0%,rgba(245,240,232,0.97) 100%);}
+    .bg-dots{position:absolute;inset:0;background-image:radial-gradient(var(--border) 1px,transparent 1px);background-size:40px 40px;}
+    .wrapper{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 1rem 5rem;}
 
-    /* ── زر الحفظ للأوف لاين ── */
-    #save-offline-wrap {
-      width: 100%; max-width: 600px;
-      margin-top: 1.5rem;
-      animation: fadeUp 1s ease 0.4s both;
-    }
-    #save-btn {
-      width: 100%;
-      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.4);
-      border-radius: 16px;
-      padding: 0.9rem 1rem;
-      color: var(--gold-light);
-      font-family: 'Cairo', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s, border-color 0.3s;
-    }
-    #save-btn:active { background: rgba(201,168,76,0.2); }
-    #save-btn:disabled { opacity: 0.6; cursor: default; }
-    @media (hover:hover) { #save-btn:hover { background: rgba(201,168,76,0.18); border-color: var(--gold); } }
+    /* TOP NAV */
+    .top-nav{width:100%;display:flex;align-items:center;justify-content:space-between;padding:0.85rem 0.6rem;border-bottom:1px solid var(--border);background:var(--bg-nav);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);position:sticky;top:0;z-index:100;transition:background var(--transition);}
+    .nav-title{font-family:'Amiri',serif;font-size:1rem;color:var(--gold-light);}
+    .nav-brand{display:flex;align-items:center;gap:0.5rem;font-family:'Amiri',serif;font-size:1rem;color:var(--gold-light);}
+    #themeToggleBtn{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);background:var(--gold-subtle);color:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:background var(--transition);-webkit-tap-highlight-color:transparent;}
+    #themeToggleBtn:hover{background:rgba(201,168,76,0.16);}
 
-    /* Progress bar */
-    #progress-wrap {
-      display: none;
-      margin-top: 0.7rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(201,168,76,0.2);
-      border-radius: 12px;
-      padding: 0.7rem 1rem;
-    }
-    #progress-wrap.show { display: block; }
-    #progress-bar-bg { background: rgba(201,168,76,0.15); border-radius: 50px; height: 8px; overflow: hidden; margin-bottom: 0.4rem; }
-    #progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-light)); border-radius: 50px; width: 0%; transition: width 0.3s; }
-    #progress-text { font-size: 0.8rem; color: var(--text-dim); text-align: center; }
+    /* HEADER */
+    .site-header{width:100%;text-align:center;padding:2.5rem 1rem 2rem;animation:fadeDown 0.9s ease both;}
+    .cross-icon{font-size:2.4rem;color:var(--gold);display:block;margin-bottom:0.6rem;text-shadow:0 0 28px var(--gold-glow);animation:pulse 3s ease-in-out infinite;}
+    .site-header h1{font-family:'Amiri',serif;font-size:clamp(1.5rem,5vw,2.5rem);font-weight:700;line-height:1.4;color:var(--text-primary);}
+    .gold-line{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1rem auto 0.7rem;border-radius:2px;}
+    .site-header p{font-size:0.9rem;color:var(--text-secondary);letter-spacing:0.04em;}
 
-    /* شريط الأوف لاين */
-    #offline-bar {
-      display: none; position: fixed; bottom: 0; left: 0; right: 0;
-      background: rgba(9,15,26,0.92); border-top: 1px solid rgba(201,168,76,0.3);
-      color: var(--gold-light); text-align: center; font-size: 0.85rem;
-      padding: 0.6rem 1rem; z-index: 9999; backdrop-filter: blur(10px);
-    }
-    #offline-bar.show { display: block; }
+    /* SECTION TITLE */
+    .section-title{font-family:'Amiri',serif;font-size:clamp(1.2rem,4vw,1.7rem);color:var(--gold-light);text-align:center;margin-bottom:1.6rem;animation:fadeDown 1s ease 0.2s both;}
 
-    @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeUp   { from { opacity: 0; transform: translateY(20px);  } to { opacity: 1; transform: translateY(0); } }
-    @keyframes pulse    { 0%,100% { text-shadow: 0 0 20px var(--gold-glow); } 50% { text-shadow: 0 0 35px rgba(201,168,76,0.6); } }
-    @media (max-width: 400px) {
-      .cards-grid { grid-template-columns: 1fr; max-width: 320px; }
-      .card { flex-direction: row; padding: 1.2rem; text-align: right; }
-      .card-icon { width: 50px; height: 50px; font-size: 1.4rem; flex-shrink: 0; }
-    }
+    /* CARDS */
+    .cards-grid{width:100%;max-width:600px;display:grid;grid-template-columns:1fr 1fr;gap:1rem;animation:fadeUp 0.9s ease 0.3s both;}
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.8rem 1rem;text-align:center;text-decoration:none;color:var(--text-primary);transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition),background var(--transition);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:flex;flex-direction:column;align-items:center;gap:0.8rem;position:relative;overflow:hidden;}
+    .card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%);pointer-events:none;}
+    .card:active{transform:scale(0.97);}
+    @media(hover:hover){.card:hover{transform:translateY(-4px);border-color:var(--gold-border-strong);background:var(--bg-card-hover);box-shadow:var(--shadow-glow);}}
+    .card-icon{width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,rgba(201,168,76,0.2),rgba(201,168,76,0.05));border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;font-size:1.7rem;color:var(--gold);}
+    .card-title{font-family:'Amiri',serif;font-size:1.25rem;font-weight:700;line-height:1.4;color:var(--text-primary);}
+    .card-arrow{font-size:0.82rem;color:var(--gold);padding:0.35rem 1.1rem;border:1px solid var(--gold-border);border-radius:50px;background:var(--gold-subtle);white-space:nowrap;}
+
+    /* OFFLINE SAVE */
+    #save-offline-wrap{width:100%;max-width:600px;margin-top:1.8rem;animation:fadeUp 1s ease 0.4s both;}
+    #save-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:0.7rem;background:var(--bg-section,rgba(201,168,76,0.06));border:1px solid rgba(201,168,76,0.35);border-radius:16px;padding:0.9rem 1rem;color:var(--gold-light);font-family:'Cairo',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:background var(--transition),border-color var(--transition);}
+    #save-btn:active{background:rgba(201,168,76,0.18);}
+    #save-btn:disabled{opacity:0.6;cursor:default;}
+    @media(hover:hover){#save-btn:hover{background:rgba(201,168,76,0.14);border-color:var(--gold);}}
+    #progress-wrap{display:none;margin-top:0.7rem;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:0.8rem 1rem;}
+    #progress-wrap.show{display:block;}
+    #progress-bar-bg{background:rgba(201,168,76,0.15);border-radius:50px;height:8px;overflow:hidden;margin-bottom:0.4rem;}
+    #progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:50px;width:0%;transition:width 0.3s;}
+    #progress-text{font-size:0.8rem;color:var(--text-muted);text-align:center;}
+
+    /* OFFLINE BAR */
+    #offline-bar{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg-nav);border-top:1px solid var(--border);color:var(--gold-light);text-align:center;font-size:0.85rem;padding:0.6rem 1rem;z-index:9999;backdrop-filter:blur(14px);}
+    #offline-bar.show{display:block;}
+
+    /* FOOTER */
+    .site-footer{margin-top:3rem;text-align:center;color:var(--text-muted);font-size:0.8rem;animation:fadeUp 1s ease 0.5s both;}
+
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes pulse{0%,100%{text-shadow:0 0 20px var(--gold-glow);}50%{text-shadow:0 0 40px rgba(201,168,76,0.6);}}
+    @media(max-width:400px){.cards-grid{grid-template-columns:1fr;max-width:320px;}.card{flex-direction:row;padding:1.2rem;text-align:right;}.card-icon{width:50px;height:50px;font-size:1.4rem;flex-shrink:0;}}
   </style>
 </head>
 <body>
   <div class="bg"><div class="bg-img"></div><div class="bg-overlay"></div><div class="bg-dots"></div></div>
   <div class="wrapper">
+
+    <nav class="top-nav">
+      <span class="nav-brand">✙ مارجرجس</span>
+      <button id="themeToggleBtn" onclick="window.__mgTheme.toggle()" aria-label="تبديل الوضع"><i class="ti ti-moon"></i></button>
+    </nav>
+
     <header class="site-header">
       <span class="cross-icon">✙</span>
       <h1>كنيسة مارجرجس<br>بشبين الكوم</h1>
       <div class="gold-line"></div>
       <p>مهرجان الكرازة المرقسية</p>
     </header>
+
     <h2 class="section-title">اختر المسابقة</h2>
+
     <div class="cards-grid">
       <a class="card" href="Home2.html">
-        <div class="card-icon">🎶</div>
+        <div class="card-icon"><i class="ti ti-music"></i></div>
         <div class="card-title">كورال</div>
         <span class="card-arrow">عرض المسابقة</span>
       </a>
       <a class="card" href="Home.html">
-        <div class="card-icon">🎵</div>
+        <div class="card-icon"><i class="ti ti-microphone"></i></div>
         <div class="card-title">خورس</div>
         <span class="card-arrow">عرض المسابقة</span>
       </a>
     </div>
 
-    <!-- زر الحفظ للأوف لاين -->
     <div id="save-offline-wrap">
       <button id="save-btn" onclick="saveAllOffline()">
-        <span>📥</span>
+        <i class="ti ti-download"></i>
         <span id="save-btn-text">حفظ الموقع كامل للاستخدام بدون نت</span>
       </button>
       <div id="progress-wrap">
@@ -136,151 +124,34 @@
   <div id="offline-bar">📴 أنت غير متصل — الموقع يعمل من الذاكرة المحفوظة ✓</div>
 
   <script>
-    // ── تسجيل Service Worker ──
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(reg => console.log('SW registered:', reg.scope))
-        .catch(err => console.error('SW error:', err));
-    }
+    // ── Theme System ──
+    (function(){const KEY='mgTheme';const root=document.documentElement;function applyTheme(t){root.setAttribute('data-theme',t);localStorage.setItem(KEY,t);const btn=document.getElementById('themeToggleBtn');if(btn){btn.querySelector('.ti').className=t==='dark'?'ti ti-sun':'ti ti-moon';btn.setAttribute('aria-label',t==='dark'?'تفعيل الوضع الفاتح':'تفعيل الوضع الداكن');}}function toggle(){applyTheme(root.getAttribute('data-theme')==='dark'?'light':'dark');}const saved=localStorage.getItem(KEY);const preferred=saved||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');applyTheme(preferred);window.__mgTheme={toggle,applyTheme};})();
 
-    // ── شريط الأوف لاين ──
-    const bar = document.getElementById('offline-bar');
-    function updateOnline() { navigator.onLine ? bar.classList.remove('show') : bar.classList.add('show'); }
-    window.addEventListener('online', updateOnline);
-    window.addEventListener('offline', updateOnline);
-    updateOnline();
+    // ── Service Worker ──
+    if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').then(r=>console.log('SW:',r.scope)).catch(e=>console.error('SW err:',e));}
 
-    // ── كل الملفات اللي محتاج تتحفظ ──
-    // !! عدّل الأسماء دى حسب ملفاتك الفعلية !!
-    const ALL_FILES = [
-      // صفحات
-      'index.html','Home.html','Home2.html','courses.html',
-      'Coral.html','CoralH.html','hadana.html','mohoob.html',
-      'mohoob1.html','mohoob3.html','melodies_level1.html',
-      'melodies_mohoob.html','level1-5_6.html','manifest.json',
-      'sw.js',
+    // ── Offline bar ──
+    const bar=document.getElementById('offline-bar');
+    function updateOnline(){navigator.onLine?bar.classList.remove('show'):bar.classList.add('show');}
+    window.addEventListener('online',updateOnline);window.addEventListener('offline',updateOnline);updateOnline();
 
-      // صورة الخلفية
-      'photo_2025-06-09_17-02-57.jpg',
+    // ── Files list ──
+    const ALL_FILES=['index.html','Home.html','Home2.html','courses.html','Coral.html','CoralH.html','hadana.html','mohoob.html','mohoob1.html','mohoob3.html','melodies_level1.html','melodies_mohoob.html','level1-5&6.html','manifest.json','sw.js','photo_2025-06-09_17-02-57.jpg','C.jpg','C1.jpg','C2.jpg','C3.jpg','C4.jpg','C5.jpg','C6.jpg','C7.jpg','h6.jpg','h7.jpg','ح7.jpg','h1.jpg','h2.jpg','h3.jpg','h4.jpg','h5.jpg','L1.jpg','L2.jpg','L3.jpg','L4.jpg','ح1.jpg','ح2jpg.jpg','ح3.jpg','ح4.jpg','ح5.jpg','ح6.jpg','ح7.jpg','ح8.jpg','ح9.jpg','A.jpg','A1.jpg','A2.jpg','A3.jpg','AG.jpg','AG1.jpg','AG2.jpg','AG3.jpg','AG4.jpg','AG5.jpg','AG6.jpg','AG7.jpg','AL1.jpg','AL2.jpg','M1.jpg','M2.jpg','M3.jpg','M4.jpg','M5.jpg','M6.jpg','M7.jpg','O1.jpg','O2.jpg','O3.jpg','O4.jpg','photo_2025-06-11_00-40-47.jpg','photo_2025-06-11_00-40-49.jpg','photo_2025-06-11_00-40-49 (2).jpg','photo_2025-06-11_00-40-49 (3).jpg','WhatsApp Image 2025-06-12 at 00.16.53_1a74fb40.jpg','563.jpg','564.jpg','565.jpg','566.jpg','567.jpg','561.jpg','562.jpg','568.jpg','569.jpg','5610.jpg','5611.jpg','C1.mp3','C2.mp3','C3.mp3','C4.mp3','C5.mp3','h1.m4a','H2.mp3','حضانة5.mp3','لحن_لبش_الهوس_الأول_سنوى_مرحلة_حضانة_مستوى_الموهوبين_مهرجان_.m4a','أرباع_الناقوس_الفرايحى_لأحد_الشعانين_مرحلة_حضانة_مستوى_الموه.m4a','مقدمة_وختام_الطروحات_بلحن_البصخة_مرحلة_حضانة_مستوى_الموهوبين.m4a','حضانة1.mp3','حضانة2.mp3','حضانة3.mp3','حضانة 4.mp3','لحن_ايفلوجيمينوس_الحان_أولى_و_ثانية_موهوبين_مهرجان_الكرزاة_ا.m4a','لحن_الثلاث_تقديسات_بلحن_التجنيز_الحان_أولى_و_ثانية_موهوبين_مهرجان.mp3','اللي_التوزيع_السنوى_الحان_أولى_و_ثانية_موهوبين_مهرجان_الكرزاة_المرقسية.mp3','مرد_تين_جوشت_للقداس_الباسيلي_الحان_أولى_و_ثانية_م_مهرجان_الك.m4a','مرد_انجيل_باكر_السنوى_الحان_أولى_و_ثانية_م_مهرجان_الكرزاة_المرقسية.m4a','مردات_قطع_الساعة_التاسعة_الحان_أولى_و_ثانية_م_مهرجان_الكرزاة.m4a','مرد_الانجيل_الثالث_لقداس_احد_الشعانين_الحان_أولى_و_ثانية_م_.m4a','كى-ايبرتو.m4a','لحن-بيك-اثرونوس.m4a','لحن-فاي-ايطاف-انف.m4a','لحن-نى-اثنوس-تيرو.m4a','ذكصولوجية_القديس_يوحنا_المعمدان_الأولى_الحان_مرحلة_خامسة_وسا.m4a','مرد_تين_جوشت_ايفول_عشية_و_باكر_الحان_مرحلة_خامسة_وسادسة_م_مه.m4a','فول-ايفول-خامسةو-سادسة.m4a','WhatsApp Video 2025-06-12 at 00.16.20_e712c7d9.mp4','d8a8d98ad983-d8abd8b1d988d986d988d8b3.pdf','هزات فاي.pdf','هزات ني اثنوس.pdf'];
 
-      // ── صور كورال ابتدائى ──
-      'C.jpg','C1.jpg','C2.jpg','C3.jpg','C4.jpg','C5.jpg','C6.jpg','C7.jpg',
-
-      // ── صور كورال حضانة ──
-      'h6.jpg','h7.jpg','ح7.jpg',
-
-      // ── صور حضانة موهوبين ──
-      'h1.jpg','h2.jpg','h3.jpg','h4.jpg','h5.jpg',
-      'L1.jpg','L2.jpg','L3.jpg','L4.jpg',
-
-      // ── صور حضانة مستوى أول ──
-      'ح1.jpg','ح2jpg.jpg','ح3.jpg','ح4.jpg','ح5.jpg','ح6.jpg','ح7.jpg','ح8.jpg','ح9.jpg',
-
-      // ── صور أولى وثانية موهوبين ──
-      'A.jpg','A1.jpg','A2.jpg','A3.jpg',
-      'AG.jpg','AG1.jpg','AG2.jpg','AG3.jpg','AG4.jpg','AG5.jpg','AG6.jpg','AG7.jpg',
-      'AL1.jpg','AL2.jpg',
-      'M1.jpg','M2.jpg','M3.jpg','M4.jpg','M5.jpg','M6.jpg','M7.jpg',
-
-      // ── صور أولى وثانية مستوى أول ──
-      'O1.jpg','O2.jpg','O3.jpg','O4.jpg',
-
-      // ── صور خامسة وسادسة موهوبين ──
-      'photo_2025-06-11_00-40-47.jpg',
-      'photo_2025-06-11_00-40-49.jpg',
-      'photo_2025-06-11_00-40-49 (2).jpg',
-      'photo_2025-06-11_00-40-49 (3).jpg',
-
-      // ── صور ثالثة ورابعة موهوبين ──
-      'WhatsApp Image 2025-06-12 at 00.16.53_1a74fb40.jpg',
-
-      // ── صور خامسة وسادسة مستوى ثانى ──
-      '563.jpg','564.jpg','565.jpg','566.jpg','567.jpg',
-      '561.jpg','562.jpg','568.jpg','569.jpg','5610.jpg','5611.jpg',
-
-      // ── أوديو كورال ابتدائى ──
-      'C1.mp3','C2.mp3','C3.mp3','C4.mp3','C5.mp3',
-
-      // ── أوديو كورال حضانة ──
-      'h1.m4a','H2.mp3','حضانة5.mp3',
-
-      // ── أوديو حضانة موهوبين ──
-      'لحن_لبش_الهوس_الأول_سنوى_مرحلة_حضانة_مستوى_الموهوبين_مهرجان_.m4a',
-      'أرباع_الناقوس_الفرايحى_لأحد_الشعانين_مرحلة_حضانة_مستوى_الموه.m4a',
-      'مقدمة_وختام_الطروحات_بلحن_البصخة_مرحلة_حضانة_مستوى_الموهوبين.m4a',
-
-      // ── أوديو حضانة مستوى أول ──
-      'حضانة1.mp3','حضانة2.mp3','حضانة3.mp3','حضانة 4.mp3',
-
-      // ── أوديو أولى وثانية موهوبين ──
-      'لحن_ايفلوجيمينوس_الحان_أولى_و_ثانية_موهوبين_مهرجان_الكرزاة_ا.m4a',
-      'لحن_الثلاث_تقديسات_بلحن_التجنيز_الحان_أولى_و_ثانية_موهوبين_مهرجان.mp3',
-      'اللي_التوزيع_السنوى_الحان_أولى_و_ثانية_موهوبين_مهرجان_الكرزاة_المرقسية.mp3',
-
-      // ── أوديو أولى وثانية مستوى أول ──
-      'مرد_تين_جوشت_للقداس_الباسيلي_الحان_أولى_و_ثانية_م_مهرجان_الك.m4a',
-      'مرد_انجيل_باكر_السنوى_الحان_أولى_و_ثانية_م_مهرجان_الكرزاة_المرقسية.m4a',
-      'مرد_انجيل_باكر_السنوى_الحان_أولى_و_ثانية_م_مهرجان_الكرزاة_المرقسية.m4a',
-      'مردات_قطع_الساعة_التاسعة_الحان_أولى_و_ثانية_م_مهرجان_الكرزاة.m4a',
-      'مرد_الانجيل_الثالث_لقداس_احد_الشعانين_الحان_أولى_و_ثانية_م_.m4a',
-
-      // ── أوديو ثالثة ورابعة موهوبين ──
-      'كى-ايبرتو.m4a',
-
-      // ── أوديو خامسة وسادسة موهوبين ──
-      'لحن-بيك-اثرونوس.m4a',
-      'لحن-فاي-ايطاف-انف.m4a',
-      'لحن-نى-اثنوس-تيرو.m4a',
-
-      // ── أوديو خامسة وسادسة مستوى ثانى ──
-      'ذكصولوجية_القديس_يوحنا_المعمدان_الأولى_الحان_مرحلة_خامسة_وسا.m4a',
-      'مرد_تين_جوشت_ايفول_عشية_و_باكر_الحان_مرحلة_خامسة_وسادسة_م_مه.m4a',
-      'فول-ايفول-خامسةو-سادسة.m4a',
-
-      // ── فيديو ثالثة ورابعة موهوبين ──
-      'WhatsApp Video 2025-06-12 at 00.16.20_e712c7d9.mp4',
-
-      // ── PDF خامسة وسادسة موهوبين ──
-      'd8a8d98ad983-d8abd8b1d988d986d988d8b3.pdf',
-      'هزات فاي.pdf',
-      'هزات ني اثنوس.pdf',
-    ];
-
-    async function saveAllOffline() {
-      if (!navigator.onLine) {
-        alert('أنت غير متصل بالنت! اتصل بالنت الأول عشان تحفظ الملفات.');
-        return;
-      }
-
-      const btn = document.getElementById('save-btn');
-      const btnText = document.getElementById('save-btn-text');
-      const progressWrap = document.getElementById('progress-wrap');
-      const progressFill = document.getElementById('progress-bar-fill');
-      const progressText = document.getElementById('progress-text');
-
-      btn.disabled = true;
-      progressWrap.classList.add('show');
-
-      const cache = await caches.open('margirgis-v2');
-      let done = 0;
-      const total = ALL_FILES.length;
-
-      for (const file of ALL_FILES) {
-        try {
-          await cache.add(new Request(file, { mode: 'no-cors' }));
-        } catch (e) {
-          // ملف مش موجود - نكمل
-        }
-        done++;
-        const pct = Math.round((done / total) * 100);
-        progressFill.style.width = pct + '%';
-        progressText.textContent = `تم حفظ ${done} من ${total} ملف (${pct}%)`;
-      }
-
-      btnText.textContent = '✓ تم الحفظ - يمكنك الاستخدام بدون نت';
-      progressText.textContent = '✙ تم تحميل كل الملفات بنجاح ✙';
-      btn.style.borderColor = 'rgba(100,200,100,0.5)';
-      btn.style.color = '#90EE90';
+    async function saveAllOffline(){
+      if(!navigator.onLine){alert('أنت غير متصل بالنت! اتصل بالنت الأول عشان تحفظ الملفات.');return;}
+      const btn=document.getElementById('save-btn');
+      const btnText=document.getElementById('save-btn-text');
+      const progressWrap=document.getElementById('progress-wrap');
+      const progressFill=document.getElementById('progress-bar-fill');
+      const progressText=document.getElementById('progress-text');
+      btn.disabled=true;progressWrap.classList.add('show');
+      const cache=await caches.open('margirgis-v2');
+      let done=0;const total=ALL_FILES.length;
+      for(const file of ALL_FILES){try{await cache.add(new Request(file,{mode:'no-cors'}));}catch(e){}done++;const pct=Math.round((done/total)*100);progressFill.style.width=pct+'%';progressText.textContent=`تم حفظ ${done} من ${total} ملف (${pct}%)`;}
+      btnText.textContent='✓ تم الحفظ - يمكنك الاستخدام بدون نت';
+      progressText.textContent='✙ تم تحميل كل الملفات بنجاح ✙';
+      btn.style.borderColor='rgba(100,200,100,0.5)';btn.style.color='#90EE90';
     }
   </script>
 </body>
